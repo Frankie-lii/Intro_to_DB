@@ -1,7 +1,3 @@
--- Script: task_6.sql
--- Inserts multiple rows into the 'customer' table of the given database
--- Usage: cat task_6.sql | mysql -u root -p alx_book_store
-
 INSERT INTO customer (customer_id, customer_name, email, address)
 VALUES 
     (2, 'Blessing Malik', 'bmalik@sandtech.com', '124 Happiness Ave.'),
