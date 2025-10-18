@@ -1,8 +1,3 @@
-
--- Use the alx_book_store database
-USE alx_book_store;
-
--- Display the full description of the Books table without using DESCRIBE or ANALYZE
 SELECT COLUMN_NAME,
        COLUMN_TYPE,
        IS_NULLABLE,
