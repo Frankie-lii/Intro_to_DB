@@ -1,47 +1,43 @@
-
--- Script: task_2.sql
--- Creates all the required tables in the 'alx_book_store' database
--- Usage: cat task_2.sql | mysql -u root -p alx_book_store
-
--- Create table: authors
-CREATE TABLE IF NOT EXISTS authors (
+-- Create table: Authors
+CREATE TABLE IF NOT EXISTS Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(255) NOT NULL,
     email VARCHAR(255)
 );
 
--- Create table: books
-CREATE TABLE IF NOT EXISTS books (
+-- Create table: Books
+CREATE TABLE IF NOT EXISTS Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author_id INT,
     price DECIMAL(10, 2),
     publication_date DATE,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
--- Create table: customers
-CREATE TABLE IF NOT EXISTS customer (
+-- Create table: Customers
+CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE,
     address VARCHAR(255)
 );
 
--- Create table: orders
-CREATE TABLE IF NOT EXISTS orders (
+-- Create table: Orders
+CREATE TABLE IF NOT EXISTS Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
     order_date DATE,
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
--- Create table: order_details
-CREATE TABLE IF NOT EXISTS order_details (
+-- Create table: Order_Details
+CREATE TABLE IF NOT EXISTS Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
     quantity INT,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
+
