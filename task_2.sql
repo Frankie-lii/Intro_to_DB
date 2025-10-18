@@ -1,3 +1,4 @@
+
 -- Script: task_2.sql
 -- Creates all the required tables in the 'alx_book_store' database
 -- Usage: cat task_2.sql | mysql -u root -p alx_book_store
