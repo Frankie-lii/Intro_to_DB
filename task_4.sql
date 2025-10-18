@@ -1,14 +1,14 @@
--- Script: task_4.sql
--- Prints the full description of the table 'books' from the given database
--- Usage: cat task_4.sql | mysql -u root -p your_database_name
+-- Use the alx_book_store database
+USE alx_book_store;
 
-SELECT 
-    COLUMN_NAME AS 'Field',
-    COLUMN_TYPE AS 'Type',
-    IS_NULLABLE AS 'Null',
-    COLUMN_KEY AS 'Key',
-    COLUMN_DEFAULT AS 'Default',
-    EXTRA AS 'Extra'
+-- Display full description of the table 'books' without using DESCRIBE or EXPLAIN
+SELECT COLUMN_NAME,
+       COLUMN_TYPE,
+       IS_NULLABLE,
+       COLUMN_KEY,
+       COLUMN_DEFAULT,
+       EXTRA
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
+WHERE TABLE_SCHEMA = 'alx_book_store'
   AND TABLE_NAME = 'books';
+
